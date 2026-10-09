@@ -1,0 +1,21 @@
+{
+  "name": "cybergirl cammdr",
+  "version": "1.0.0",
+  "age": "14",
+  "email": "cammander79@gmail.com",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cookie": "^2.0.1",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.16"
+  }
+}

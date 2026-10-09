@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects — Cyber Girl</title>
+
+    <link rel="stylesheet" href="web.css">
+</head>
+
+<body class="projects-page">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+
+        <nav>
+
+            <a href="web.html" class="logo">
+                <img src="image/281686151691122258.jpg" alt="Cyber Girl">
+            </a>
+
+            <div class="nav-links">
+
+                <a href="web.html">
+                    Home
+                </a>
+
+                <a href="mission.html">
+                    Mission
+                </a>
+
+                <a href="project.html" class="active">
+                    Projects
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </div>
+
+            <a href="project.html" class="nav-button">
+                Project Progress
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main>
+
+        <!-- =================================================
+             INTRO
+             ================================================= -->
+
+        <section class="project-world">
+
+            <div class="project-content">
+
+                <span class="section-tag">
+                    CYBER GIRL / PROJECTS
+                </span>
+
+                <h1>
+                    Built
+                    <br>
+                    in reality.
+                </h1>
+
+                <p>
+                    Projects, experiments and systems built
+                    to turn ideas into something real.
+                </p>
+
+                <button class="enter-project" type="button">
+                    Enter
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <!-- Cinematic environment -->
+
+            <div class="stroll-world">
+
+                <div class="world-object object-one"></div>
+                <div class="world-object object-two"></div>
+                <div class="world-object object-three"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROJECTS
+             ================================================= -->
+
+        <section class="projects-list" id="projects">
+
+            <div class="projects-heading">
+
+                <span class="section-tag">
+                    SELECTED WORK
+                </span>
+
+                <h2>
+                    Things I built.
+                </h2>
+
+                <p>
+                    Real experiments, systems and digital
+                    projects developed through execution.
+                </p>
+
+            </div>
+
+
+            <div class="project-grid">
+
+                <!-- PROJECT 01 -->
+
+                <article class="project-card">
+
+                    <span class="project-number">
+                        01
+                    </span>
+
+                    <div class="project-card-content">
+
+                        <span class="project-type">
+                            WEB SYSTEM
+                        </span>
+
+                        <h3>
+                            Cyber Girl
+                        </h3>
+
+                        <p>
+                            A personal technology platform
+                            built around ideas, systems,
+                            experiments and future projects.
+                        </p>
+
+                        <a href="web.html">
+                            Explore
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 02 -->
+
+                <article class="project-card">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <div class="project-card-content">
+
+                        <span class="project-type">
+                            EXPERIMENT
+                        </span>
+
+                        <h3>
+                            Project Two
+                        </h3>
+
+                        <p>
+                            An experimental system currently
+                            being developed and tested.
+                        </p>
+
+                        <a href="#projects">
+                            Coming next
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 03 -->
+
+                <article class="project-card">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <div class="project-card-content">
+
+                        <span class="project-type">
+                            SYSTEM
+                        </span>
+
+                        <h3>
+                            Project Three
+                        </h3>
+
+                        <p>
+                            A future build focused on solving
+                            a real problem with technology.
+                        </p>
+
+                        <a href="#projects">
+                            In development
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL
+             ================================================= -->
+
+        <section class="projects-final">
+
+            <span class="section-tag">
+                NEXT
+            </span>
+
+            <h2>
+                More is being built.
+            </h2>
+
+            <p>
+                Start small. Build real. Learn fast.
+                Think long term.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         AMBIENT AUDIO
+         ===================================================== -->
+
+    <script>
+
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const enterButton =
+                document.querySelector(".enter-project");
+
+            let audioContext = null;
+            let masterGain = null;
+            let started = false;
+            let loopTimer = null;
+
+            const LOOP_LENGTH = 180;
+
+
+            /* =================================================
+               CREATE AMBIENT SOUND
+               ================================================= */
+
+            function createAmbientSound() {
+
+                audioContext = new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+                masterGain =
+                    audioContext.createGain();
+
+                masterGain.gain.setValueAtTime(
+                    0.0001,
+                    audioContext.currentTime
+                );
+
+                masterGain.connect(
+                    audioContext.destination
+                );
+
+
+                /* FOUNDATION */
+
+                const foundation =
+                    audioContext.createOscillator();
+
+                const foundationGain =
+                    audioContext.createGain();
+
+                foundation.type = "sine";
+                foundation.frequency.value = 43;
+                foundationGain.gain.value = 0.018;
+
+                foundation
+                    .connect(foundationGain)
+                    .connect(masterGain);
+
+                foundation.start();
+
+
+                /* HARMONIC */
+
+                const harmonic =
+                    audioContext.createOscillator();
+
+                const harmonicGain =
+                    audioContext.createGain();
+
+                harmonic.type = "sine";
+                harmonic.frequency.value = 86;
+                harmonicGain.gain.value = 0.008;
+
+                harmonic
+                    .connect(harmonicGain)
+                    .connect(masterGain);
+
+                harmonic.start();
+
+
+                /* SLOW MOVEMENT */
+
+                const wave =
+                    audioContext.createOscillator();
+
+                const waveGain =
+                    audioContext.createGain();
+
+                wave.type = "sine";
+                wave.frequency.value = 1 / 45;
+                waveGain.gain.value = 0.012;
+
+                wave
+                    .connect(waveGain)
+                    .connect(masterGain);
+
+                wave.start();
+
+
+                /* AIR TEXTURE */
+
+                const bufferSize =
+                    audioContext.sampleRate * 2;
+
+                const noiseBuffer =
+                    audioContext.createBuffer(
+                        1,
+                        bufferSize,
+                        audioContext.sampleRate
+                    );
+
+                const noiseData =
+                    noiseBuffer.getChannelData(0);
+
+                for (
+                    let i = 0;
+                    i < bufferSize;
+                    i++
+                ) {
+                    noiseData[i] =
+                        Math.random() * 2 - 1;
+                }
+
+
+                const noise =
+                    audioContext.createBufferSource();
+
+                noise.buffer = noiseBuffer;
+                noise.loop = true;
+
+
+                const filter =
+                    audioContext.createBiquadFilter();
+
+                filter.type = "lowpass";
+                filter.frequency.value = 700;
+
+
+                const noiseGain =
+                    audioContext.createGain();
+
+                noiseGain.gain.value = 0.004;
+
+
+                noise
+                    .connect(filter)
+                    .connect(noiseGain)
+                    .connect(masterGain);
+
+                noise.start();
+
+
+                scheduleWaves();
+
+            }
+
+
+            /* =================================================
+               AUDIO LOOP
+               ================================================= */
+
+            function scheduleWaves() {
+
+                if (!audioContext || !masterGain) {
+                    return;
+                }
+
+                const now =
+                    audioContext.currentTime;
+
+                const gain =
+                    masterGain.gain;
+
+
+                gain.cancelScheduledValues(now);
+
+                gain.setValueAtTime(
+                    0.035,
+                    now
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.055,
+                    now + 45
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.040,
+                    now + 70
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.070,
+                    now + 90
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.050,
+                    now + 115
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.080,
+                    now + 135
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.045,
+                    now + 165
+                );
+
+
+                gain.linearRampToValueAtTime(
+                    0.035,
+                    now + LOOP_LENGTH
+                );
+
+
+                clearTimeout(loopTimer);
+
+                loopTimer = setTimeout(() => {
+
+                    if (
+                        audioContext &&
+                        audioContext.state !== "closed"
+                    ) {
+                        scheduleWaves();
+                    }
+
+                }, LOOP_LENGTH * 1000);
+
+            }
+
+
+            /* =================================================
+               ENTER
+               ================================================= */
+
+            if (enterButton) {
+
+                enterButton.addEventListener(
+                    "click",
+                    async () => {
+
+                        if (!started) {
+
+                            started = true;
+
+                            createAmbientSound();
+
+                            if (
+                                audioContext.state ===
+                                "suspended"
+                            ) {
+                                await audioContext.resume();
+                            }
+
+                            enterButton.innerHTML =
+                                'Entered <span>→</span>';
+
+                            document
+                                .querySelector("#projects")
+                                ?.scrollIntoView({
+                                    behavior: "smooth"
+                                });
+
+                            return;
+                        }
+
+
+                        if (
+                            audioContext &&
+                            audioContext.state ===
+                            "suspended"
+                        ) {
+                            await audioContext.resume();
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =================================================
+               WORLD OBJECTS
+               ================================================= */
+
+            const objects =
+                document.querySelectorAll(
+                    ".world-object"
+                );
+
+            objects.forEach((object, index) => {
+
+                object.style.animationDelay =
+                    `${index * 3}s`;
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
